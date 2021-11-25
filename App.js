@@ -37,7 +37,7 @@ import { StyleSheet, Text, View, Linking, TextInput, Button} from 'react-native'
           style={styles.input}
           keyboardType='numeric'
           maxLength={11}
-          placeholder={'Ensira o seu número de celular'}
+          placeholder={'Ensira o número de celular'}
           onChangeText={(val)=>setCelular(55+val)} 
         />
         <TextInput
