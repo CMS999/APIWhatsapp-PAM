@@ -6,6 +6,7 @@ import { StyleSheet, Text, View, Linking, TextInput, Button} from 'react-native'
  function App() {
   const [Celular, setCelular] = useState('')
   const [Mensagem, setMensagem] = useState('')
+  const [Titulo, setTitulo] = useState('')
   let options = 'pt-BR'
   const dia = new Date().getDate()
   const mes = new Date().getMonth()
@@ -21,7 +22,7 @@ import { StyleSheet, Text, View, Linking, TextInput, Button} from 'react-native'
     const data = 'Hora: '+hora+':'+minutos+'\n'+'Data: '+dia+'/'+mes+'/'+ano
     Linking.canOpenURL("whatsapp://send?text="+Mensagem).then(supported => {
       return Linking.openURL(
-        "https://api.whatsapp.com/send?phone="+Celular+"&text="+data+"\n"+"Mensagem: "+Mensagem
+        "https://api.whatsapp.com/send?phone="+Celular+"&text="+data+"\n"+"Título: "+Titulo+"\n"+"Mensagem: "+Mensagem
       );
     })
   }
@@ -39,6 +40,11 @@ import { StyleSheet, Text, View, Linking, TextInput, Button} from 'react-native'
           maxLength={11}
           placeholder={'Ensira o número de celular'}
           onChangeText={(val)=>setCelular(55+val)} 
+        />
+        <TextInput
+          style={styles.input}
+          placeholder={'Ensira o título'}
+          onChangeText={(val)=>setTitulo(val)} 
         />
         <TextInput
           style={styles.input}
